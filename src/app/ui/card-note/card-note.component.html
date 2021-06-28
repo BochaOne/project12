@@ -1,0 +1,23 @@
+<div class="card-body" *ngIf="!modeEdit">
+    <h5 class="card-title">{{ note.noteTitle }}</h5>
+    <p class="card-text">{{ note.noteText }}</p>
+    <div class="card-date">{{ note.noteDate }}</div>
+    <button class="btn btn-primary btn-sm btn-block me-2" type="button" (click)="onEditMode()">
+        Редактировать
+    </button>
+    <button class="btn btn-danger btn-sm btn-block " type="button" (click)="onDeleteNote(note.noteId)">
+        Удалить
+    </button>
+</div>
+<div class="card-body" *ngIf="modeEdit">
+    <input type="text" id="title" class="form-control" [(ngModel)]="note.noteTitle" />
+    <textarea name="about" id="about" class="form-control" [(ngModel)]="note.noteText"></textarea>
+    <div class="card-date">{{ note.noteDate }}</div>
+    <button class="btn btn-primary btn-sm btn-block me-2" type="button" (click)="onEditNote(note.noteId)">
+        Сохранить
+    </button>
+    <button class="btn btn-danger btn-sm btn-block " type="button" (click)="onDeleteNote(note.noteId)">
+        Удалить
+    </button>
+</div>
+
